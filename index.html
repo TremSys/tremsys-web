@@ -1,114 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TREMSYS - Tremor Analysis</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tremsys</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0da6f2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0E2A55", "accent-peach": "#FFD1B8",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
     <style>
-        body { font-family: 'Montserrat', sans-serif; }
-        
-        /* Custom thick circle border */
-        .circle-step {
-            border: 3px solid white;
-            border-radius: 50%;
-            aspect-ratio: 1/1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        .glass-card {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(13, 166, 242, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(13, 166, 242, 0.4);
+            }
+        }
+
+        .animate-glow {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        @keyframes sensor-ripple {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+                border-width: 2px;
+            }
+
+            100% {
+                transform: scale(2.2);
+                opacity: 0;
+                border-width: 0px;
+            }
+        }
+
+        .animate-sensor-ripple {
+            animation: sensor-ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+
+        @keyframes wave-flow {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .animate-wave-text {
+            background: linear-gradient(90deg, #FFD1B8 20%, #ffffff 50%, #FFD1B8 80%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            animation: wave-flow 3s linear infinite;
         }
     </style>
 </head>
-<body class="bg-[#0E2A55] text-white min-h-screen relative overflow-x-hidden flex flex-col justify-between">
 
-    <div class="absolute top-0 left-0 w-full z-0 pointer-events-none">
-        <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#FFD1B8;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#F5E1D5;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <path fill="url(#grad1)" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,122.7C960,149,1056,203,1152,208C1248,213,1344,171,1392,149.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden min-h-screen flex flex-col">
+    <nav class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="text-primary">
+                        <span class="material-symbols-outlined !text-[32px]">pacemaker</span>
+                    </div>
+                    <h1 class="text-white text-xl font-bold tracking-widest uppercase">TREMSYS</h1>
+                </div>
+                <div class="flex items-center gap-6">
+                    <!--
+                    <button
+                        class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-6 rounded-full text-sm transition-colors duration-200 shadow-lg shadow-primary/20">
+                        Contact
+                    </button>
+                    -->
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="relative w-full h-16 md:h-24 overflow-hidden -mb-1">
+        <svg class="absolute bottom-0 w-full h-full text-accent-peach opacity-90" preserveAspectRatio="none"
+            viewBox="0 0 1440 320">
+            <path
+                d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+                fill="currentColor" fill-opacity="1"></path>
         </svg>
     </div>
-
-    <main class="relative z-10 container mx-auto px-4 pt-12 pb-24 max-w-4xl">
-        
-        <div class="text-center mb-8">
-            <h1 class="text-[#0E2A55] text-5xl md:text-6xl font-bold tracking-widest uppercase drop-shadow-sm">TREMSYS</h1>
-        </div>
-
-        <div class="mt-32 pt-10 flex flex-col gap-12 items-center text-center">
-            
-            <div class="space-y-4 max-w-2xl">
-                <p class="text-lg uppercase tracking-wide">
-                    Tremor is the most common movement disorder
+    <main class="flex-grow flex flex-col items-center justify-center relative">
+        <section
+            class="relative w-full max-w-7xl mx-auto px-6 py-10 lg:py-12 flex flex-col items-center text-center z-10">
+            <div class="mb-4">
+                <h1 class="text-6xl md:text-8xl font-black text-white tracking-widest uppercase drop-shadow-2xl">TREMSYS
+                </h1>
+            </div>
+            <h2
+                class="text-2xl md:text-4xl font-bold text-slate-200 leading-tight tracking-tight max-w-5xl mb-6 uppercase">
+                TREMOR IS THE MOST <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-peach to-white">COMMON
+                    MOVEMENT</span> DISORDER
+            </h2>
+            <p class="text-accent-peach text-xl md:text-2xl font-light mb-12 italic">
+                But the diagnosis is highly subjective
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl relative">
+                <div
+                    class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent z-0">
+                </div>
+                <div class="flex flex-col items-center gap-6 z-10">
+                    <div
+                        class="w-64 h-64 sm:w-72 sm:h-72 rounded-full glass-card flex items-center justify-center relative animate-glow group cursor-default overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div
+                                class="w-16 h-16 rounded-full border border-accent-peach/50 absolute animate-sensor-ripple">
+                            </div>
+                            <div class="w-16 h-16 rounded-full border border-accent-peach/30 absolute animate-sensor-ripple"
+                                style="animation-delay: 0.6s;"></div>
+                        </div>
+                        <div class="absolute inset-4 rounded-full border border-white/5 bg-primary/10"></div>
+                        <div
+                            class="flex flex-col items-center text-center p-6 transition-transform duration-300 group-hover:scale-105 relative z-10">
+                            <span class="material-symbols-outlined text-accent-peach text-5xl mb-4">sensors</span>
+                            <p class="text-lg font-bold text-white leading-snug">Measure tremor using the sensors</p>
+                        </div>
+                    </div>
+                    <div class="text-primary font-bold tracking-wider text-sm uppercase">Step 01</div>
+                </div>
+                <div class="flex flex-col items-center gap-6 z-10">
+                    <div
+                        class="w-64 h-64 sm:w-72 sm:h-72 rounded-full glass-card flex items-center justify-center relative animate-glow group cursor-default delay-150 overflow-hidden">
+                        <div class="absolute inset-4 rounded-full border border-white/5 bg-primary/10"></div>
+                        <div
+                            class="flex flex-col items-center text-center p-6 transition-transform duration-300 group-hover:scale-105">
+                            <span class="material-symbols-outlined text-5xl mb-4 animate-wave-text">vital_signs</span>
+                            <p class="text-lg font-bold text-white leading-snug">Obtain accurate tremor characterization
+                                in time and frequency</p>
+                        </div>
+                    </div>
+                    <div class="text-primary font-bold tracking-wider text-sm uppercase">Step 02</div>
+                </div>
+            </div>
+            <div class="mt-16 max-w-3xl mx-auto text-center">
+                <p class="text-xl md:text-3xl text-slate-200 leading-relaxed font-light">
+                    An easy to use device for accurate <span class="text-accent-peach font-bold">diagnosis</span> and
+                    for easy <span class="text-accent-peach font-bold">monitorization</span> of patients
                 </p>
-                <div class="bg-[#A0D2E7] text-[#0E2A55] px-8 py-3 rounded-2xl inline-block font-bold transform -rotate-1 shadow-lg text-lg">
-                    BUT THE DIAGNOSIS IS<br>HIGHLY SUBJECTIVE
-                </div>
             </div>
-
-            <div class="space-y-4 max-w-2xl">
-                <p class="text-2xl font-light leading-relaxed">
-                    WE DEVELOPED A TREMOR <br>
-                    <span class="font-bold text-[#FFD1B8]">QUANTIFICATION AND ANALYSIS SYSTEM</span>
-                </p>
-            </div>
+        </section>
+        <div
+            class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-[100px] pointer-events-none">
         </div>
-
-        <div class="mt-20 grid md:grid-cols-2 gap-12 justify-center items-center max-w-3xl mx-auto">
-            
-            <div class="flex justify-center">
-                <div class="circle-step w-64 h-64 md:w-72 md:h-72">
-                    <p class="text-3xl mb-2">01</p>
-                    <p class="font-bold text-lg px-4">MEASURE TREMOR</p>
-                    <p class="text-sm font-light mt-1">USING THE SENSORS</p>
-                </div>
-            </div>
-
-            <div class="flex justify-center">
-                <div class="circle-step w-64 h-64 md:w-72 md:h-72 border-[#FFD1B8] text-[#FFD1B8]">
-                    <p class="text-3xl mb-2">02</p>
-                    <p class="font-bold text-lg px-4">OBTAIN DATA</p>
-                    <p class="text-sm font-light mt-1">CHARACTERIZATION IN <br>TIME & FREQUENCY</p>
-                </div>
-            </div>
+        <div
+            class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-peach/10 rounded-full filter blur-[100px] pointer-events-none">
         </div>
-
-        <div class="text-center mt-24 space-y-3">
-            <h3 class="text-2xl md:text-3xl font-light">
-                AN EASY TO USE DEVICE FOR
-            </h3>
-            <h3 class="text-2xl md:text-3xl font-bold text-[#FFD1B8]">
-                ACCURATE DIAGNOSIS
-            </h3>
-            <h3 class="text-xl md:text-2xl font-light">
-                AND EASY MONITORIZATION OF PATIENTS
-            </h3>
-        </div>
-
     </main>
-
-    <footer class="relative w-full mt-auto">
-        <div class="absolute bottom-0 w-full z-0 pointer-events-none">
-             <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#FFD1B8" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
-        </div>
-
-        <div class="relative z-10 text-[#0E2A55] text-center container mx-auto px-6 pb-6 pt-48">
-            <a href="mailto:contact@tremsys.dk" class="font-bold text-2xl md:text-3xl hover:underline flex items-center justify-center gap-3 mb-2">
-                ✉️ contact@tremsys.dk
-            </a>
+    <div class="relative w-full h-24 md:h-32 overflow-hidden mt-auto -mb-1">
+        <svg class="absolute bottom-0 w-full h-full text-primary/10 fill-current" preserveAspectRatio="none"
+            viewBox="0 0 1440 320">
+            <path
+                d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+    <footer class="bg-[#0b2142] border-t border-white/5 relative z-20">
+        <div class="relative max-w-7xl mx-auto px-6 py-20 lg:py-24 text-center">
+            <div class="inline-flex flex-col items-center justify-center relative p-12">
+                <div aria-hidden="true"
+                    class="absolute inset-0 border-2 border-accent-peach/30 rounded-[3rem] transform -rotate-1 pointer-events-none">
+                </div>
+                <div aria-hidden="true"
+                    class="absolute inset-0 border-2 border-primary/20 rounded-[3rem] transform rotate-2 pointer-events-none">
+                </div>
+                <!-- <h3 class="text-accent-peach font-bold uppercase tracking-widest text-sm mb-4">Clinical Trials &amp;
+                    Partnerships</h3> -->
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Let's Connect</h2>
+                <a class="text-2xl md:text-4xl font-bold text-primary hover:text-white transition-colors duration-300 underline decoration-2 decoration-accent-peach/50 underline-offset-8"
+                    href="mailto:contact@tremsys.dk">
+                    contact@tremsys.dk
+                </a>
+                <!-- <div class="flex gap-6 mt-10">
+                    <a class="w-10 h-10 rounded-full bg-white/5 hover:bg-primary flex items-center justify-center transition-colors text-white"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">mail</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-full bg-white/5 hover:bg-primary flex items-center justify-center transition-colors text-white"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">share</span>
+                    </a>
+                </div> -->
+            </div>
+            <div
+                class="mt-16 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm border-t border-white/10 pt-8">
+                <p>© 2026 Tremsys. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <!-- <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-white transition-colors" href="#">Terms of Service</a> -->
+                    <span class="text-white">Privacy Policy (Coming Soon)</span>
+                    <span class="text-white">Terms of Service (Coming Soon)</span>
+                </div>
+            </div>
         </div>
     </footer>
 
 </body>
+
 </html>
