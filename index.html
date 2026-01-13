@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Tremsys</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo_v1.png">
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700;800;900&amp;display=swap"
@@ -38,6 +39,12 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-outline {
+            filter:
+                drop-shadow(0 0 0.75px rgba(255, 255, 255, 0.95))
+                drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.7));
         }
 
         @keyframes pulse-glow {
@@ -102,9 +109,11 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-3">
-                    <div class="text-primary">
-                        <span class="material-symbols-outlined !text-[32px]">pacemaker</span>
-                    </div>
+                    <img
+                        src="/images/logo_v1.png"
+                        alt="Tremsys logo"
+                        class="logo-outline w-8 h-8 md:w-9 md:h-9 object-contain"
+                    />
                     <h1 class="text-white text-xl font-bold tracking-widest uppercase">TREMSYS</h1>
                 </div>
                 <div class="flex items-center gap-6">
