@@ -8,99 +8,10 @@
     <link rel="icon" type="image/x-icon" href="/images/logo_v2.png">
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700;800;900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0da6f2",
-                        "background-light": "#f5f7f8",
-                        "background-dark": "#0E2A55", "accent-peach": "#FFD1B8",
-                    },
-                    fontFamily: {
-                        "display": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
-    <style>
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo-outline {
-            filter:
-                drop-shadow(0 0 0.75px rgba(255, 255, 255, 0.95))
-                drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.7));
-        }
-
-        @keyframes pulse-glow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 20px rgba(13, 166, 242, 0.2);
-            }
-
-            50% {
-                box-shadow: 0 0 40px rgba(13, 166, 242, 0.4);
-            }
-        }
-
-        .animate-glow {
-            animation: pulse-glow 3s infinite ease-in-out;
-        }
-
-        @keyframes sensor-ripple {
-            0% {
-                transform: scale(0.8);
-                opacity: 0.8;
-                border-width: 2px;
-            }
-
-            100% {
-                transform: scale(2.2);
-                opacity: 0;
-                border-width: 0px;
-            }
-        }
-
-        .animate-sensor-ripple {
-            animation: sensor-ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-        }
-
-        @keyframes wave-flow {
-            0% {
-                background-position: 200% 0;
-            }
-
-            100% {
-                background-position: -200% 0;
-            }
-        }
-
-        .animate-wave-text {
-            background: linear-gradient(90deg, #FFD1B8 20%, #ffffff 50%, #FFD1B8 80%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            animation: wave-flow 3s linear infinite;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body
