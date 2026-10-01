@@ -1,162 +1,290 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html class="scroll-smooth" lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Tremsys</title>
-    <link rel="icon" type="image/x-icon" href="/images/logo_v2.png">
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700;800;900&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    
+    <title>Tremsys | Objective measurement of movement disorders</title>
+    <meta name="description"
+        content="Tremsys is a Copenhagen-based medtech startup building wearable sensors and clinical software that turn movement disorders into objective, comparable measurements." />
+    <meta name="theme-color" content="#0E2A55" />
+    <link rel="canonical" href="https://www.tremsys.dk/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.tremsys.dk/" />
+    <meta property="og:title" content="Tremsys | Objective measurement of movement disorders" />
+    <meta property="og:description"
+        content="Wearable sensors and clinical software that turn movement disorders into objective, comparable measurements." />
+    <meta property="og:image" content="https://www.tremsys.dk/images/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="preload" href="fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body
-    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden min-h-screen flex flex-col">
-    <nav class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center gap-3">
-                    <img
-                        src="/images/logo_v2.png"
-                        alt="Tremsys logo"
-                        class="logo-outline w-8 h-8 md:w-9 md:h-9 object-contain"
-                    />
-                    <h1 class="text-white text-xl font-bold tracking-widest uppercase">TREMSYS</h1>
-                </div>
-                <div class="flex items-center gap-6">
-                    <!--
-                    <button
-                        class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-6 rounded-full text-sm transition-colors duration-200 shadow-lg shadow-primary/20">
+<body class="bg-background-dark text-white font-display antialiased overflow-x-hidden min-h-screen flex flex-col">
+    <nav class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/85 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-18">
+                <a href="#top" class="flex items-center gap-3">
+                    <img src="images/logo-72.png" alt="" width="36" height="36"
+                        class="logo-outline w-8 h-8 md:w-9 md:h-9" />
+                    <span class="text-white text-lg font-bold tracking-[0.2em] uppercase">Tremsys</span>
+                </a>
+                <div class="flex items-center gap-8">
+                    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                        <a class="hover:text-white transition-colors" href="#problem">Problem</a>
+                        <a class="hover:text-white transition-colors" href="#how">How it works</a>
+                        <a class="hover:text-white transition-colors" href="#roadmap">Roadmap</a>
+                    </div>
+                    <a href="#contact"
+                        class="bg-primary hover:bg-accent-peach text-background-dark font-bold py-2 px-5 rounded-full text-sm transition-colors">
                         Contact
-                    </button>
-                    -->
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
-    <div class="relative w-full h-16 md:h-24 overflow-hidden -mb-1">
-        <svg class="absolute bottom-0 w-full h-full text-accent-peach opacity-90" preserveAspectRatio="none"
-            viewBox="0 0 1440 320">
-            <path
-                d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-                fill="currentColor" fill-opacity="1"></path>
-        </svg>
-    </div>
-    <main class="flex-grow flex flex-col items-center justify-center relative">
-        <section
-            class="relative w-full max-w-7xl mx-auto px-6 py-10 lg:py-12 flex flex-col items-center text-center z-10">
-            <div class="mb-4">
-                <h1 class="text-6xl md:text-8xl font-black text-white tracking-widest uppercase drop-shadow-2xl">TREMSYS
+
+    <main id="top" class="flex-grow">
+
+        <!-- Hero -->
+        <section class="relative">
+            <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+                <img src="images/contours.svg" alt=""
+                    class="absolute -top-24 -right-64 md:-right-24 w-[900px] max-w-none opacity-40 md:opacity-60 select-none" />
+            </div>
+            <div class="glow -top-20 -left-40 w-[32rem] h-[32rem] bg-primary/25"></div>
+            <div class="glow bottom-0 right-[8%] w-[30rem] h-[30rem] bg-glow-warm/30"></div>
+            <div class="relative max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-16 md:pt-24 md:pb-24">
+                <h1
+                    class="max-w-[18ch] text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight mb-8 pb-1 bg-linear-to-r from-white from-35% to-accent-peach bg-clip-text text-transparent">
+                    Objective measurement of movement disorders
                 </h1>
-            </div>
-            <h2
-                class="text-2xl md:text-4xl font-bold text-slate-200 leading-tight tracking-tight max-w-5xl mb-6 uppercase">
-                TREMOR IS THE MOST <br class="hidden md:block" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-peach to-white">COMMON
-                    MOVEMENT</span> DISORDER
-            </h2>
-            <p class="text-accent-peach text-xl md:text-2xl font-light mb-12 italic">
-                But the diagnosis is highly subjective
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl relative">
-                <div
-                    class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent z-0">
+                <p class="max-w-[60ch] text-lg md:text-xl text-slate-300 leading-relaxed mb-10">
+                    Tremsys is a Copenhagen medtech startup building wearable motion sensors and clinical software. We
+                    turn how a patient moves into objective, comparable measurements, so clinicians can assess symptoms
+                    consistently and follow them over time.
+                </p>
+                <div class="flex flex-wrap gap-4 mb-16 md:mb-20">
+                    <a href="#contact"
+                        class="bg-primary hover:bg-accent-peach text-background-dark font-bold py-3 px-7 rounded-full transition-colors">
+                        Get in touch
+                    </a>
+                    <a href="#how"
+                        class="border border-white/25 hover:border-white/60 text-white font-bold py-3 px-7 rounded-full transition-colors">
+                        How it works
+                    </a>
                 </div>
-                <div class="flex flex-col items-center gap-6 z-10">
-                    <div
-                        class="w-64 h-64 sm:w-72 sm:h-72 rounded-full glass-card flex items-center justify-center relative animate-glow group cursor-default overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div
-                                class="w-16 h-16 rounded-full border border-accent-peach/50 absolute animate-sensor-ripple">
-                            </div>
-                            <div class="w-16 h-16 rounded-full border border-accent-peach/30 absolute animate-sensor-ripple"
-                                style="animation-delay: 0.6s;"></div>
+
+                <figure class="glass-card rounded-3xl px-4 pt-8 pb-6 md:px-10 md:pt-10">
+                    <svg class="w-full h-40 md:h-52 overflow-visible" viewBox="0 0 1200 200" preserveAspectRatio="none"
+                        aria-hidden="true">
+                        <defs>
+                            <linearGradient id="trace-gradient" x1="0" x2="1" y1="0" y2="0">
+                                <stop offset="0%" stop-color="#0da6f2" stop-opacity="0.35" />
+                                <stop offset="50%" stop-color="#FFD1B8" />
+                                <stop offset="100%" stop-color="#0da6f2" stop-opacity="0.35" />
+                            </linearGradient>
+                        </defs>
+                        <line x1="0" y1="100" x2="1200" y2="100" stroke="rgba(255,255,255,0.08)"
+                            vector-effect="non-scaling-stroke" />
+                        <path class="animate-draw" pathLength="1" fill="none" stroke="url(#trace-gradient)"
+                            stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
+                            vector-effect="non-scaling-stroke" d="M0,100L2,100L4,100L6,99.9L8,99.7L10,99.5L12,99.1L14,98.7L16,98.2L18,97.7L20,97.2L22,96.7L24,96.2L26,95.9L28,95.8L30,95.8L32,96.1L34,96.6L36,97.5L38,98.6L40,100L42,101.7L44,103.6L46,105.7L48,107.9L50,110.1L52,112.3L54,114.4L56,116.3L58,117.8L60,119L62,119.7L64,119.9L66,119.5L68,118.4L70,116.8L72,114.5L74,111.6L76,108.2L78,104.3L80,100L82,95.5L84,90.8L86,86.1L88,81.6L90,77.3L92,73.5L94,70.2L96,67.6L98,65.8L100,64.8L102,64.7L104,65.6L106,67.4L108,70.1L110,73.7L112,77.9L114,82.9L116,88.3L118,94.1L120,100L122,105.9L124,111.7L126,117.3L128,122.3L130,126.9L132,130.7L134,133.9L136,136.1L138,137.5L140,138L142,137.5L144,136.1L146,133.9L148,130.7L150,126.9L152,122.3L154,117.3L156,111.7L158,105.9L160,100L162,94.1L164,88.3L166,82.7L168,77.7L170,73.1L172,69.3L174,66.1L176,63.9L178,62.5L180,62L182,62.5L184,63.9L186,66.1L188,69.3L190,73.1L192,77.7L194,82.7L196,88.3L198,94.1L200,100L202,105.9L204,111.7L206,117.3L208,122.3L210,126.9L212,130.7L214,133.9L216,136.1L218,137.5L220,138L222,137.5L224,136.1L226,133.9L228,130.7L230,126.9L232,122.3L234,117.3L236,111.7L238,105.9L240,100L242,94.1L244,88.3L246,82.7L248,77.7L250,73.1L252,69.3L254,66.1L256,63.9L258,62.5L260,62L262,62.5L264,63.9L266,66.1L268,69.3L270,73.1L272,77.7L274,82.7L276,88.3L278,94.1L280,100L282,105.9L284,111.7L286,117.3L288,122.3L290,126.9L292,130.7L294,133.9L296,136.1L298,137.5L300,138L302,137.5L304,136.1L306,133.9L308,130.7L310,126.9L312,122.3L314,117.3L316,111.7L318,105.9L320,100L322,94.1L324,88.3L326,82.7L328,77.7L330,73.1L332,69.3L334,66.1L336,63.9L338,62.5L340,62L342,62.5L344,63.9L346,66.1L348,69.3L350,73.1L352,77.7L354,82.7L356,88.3L358,94.1L360,100L362,105.9L364,111.7L366,117.3L368,122.3L370,126.9L372,130.7L374,133.9L376,136.1L378,137.5L380,138L382,137.5L384,136.1L386,133.9L388,130.7L390,126.9L392,122.3L394,117.3L396,111.7L398,105.9L400,100L402,94.1L404,88.3L406,82.7L408,77.7L410,73.1L412,69.2L414,66.1L416,63.8L418,62.4L420,62L422,62.4L424,63.8L426,66.1L428,69.2L430,73.1L432,77.6L434,82.7L436,88.2L438,94L440,100L442,106L444,111.8L446,117.3L448,122.4L450,127L452,130.9L454,134.1L456,136.4L458,137.9L460,138.4L462,137.9L464,136.6L466,134.3L468,131.2L470,127.3L472,122.8L474,117.6L476,112L478,106.1L480,100L482,93.9L484,87.9L486,82.1L488,76.8L490,71.9L492,67.8L494,64.3L496,61.8L498,60.1L500,59.4L502,59.7L504,61L506,63.2L508,66.4L510,70.4L512,75.2L514,80.7L516,86.8L518,93.3L520,100L522,106.8L524,113.6L526,120.2L528,126.4L530,132.1L532,137L534,141.2L536,144.4L538,146.5L540,147.6L542,147.5L544,146.2L546,143.7L548,140.1L550,135.4L552,129.7L554,123.1L556,115.9L558,108.1L560,100L562,91.7L564,83.5L566,75.6L568,68.1L570,61.4L572,55.5L574,50.6L576,46.9L578,44.6L580,43.6L582,44L584,45.8L586,49L588,53.5L590,59.3L592,66.1L594,73.7L596,82.1L598,90.9L600,100L602,109.1L604,117.9L606,126.3L608,133.9L610,140.7L612,146.5L614,151L616,154.2L618,156L620,156.4L622,155.4L624,153.1L626,149.4L628,144.5L630,138.6L632,131.9L634,124.4L636,116.5L638,108.3L640,100L642,91.9L644,84.1L646,76.9L648,70.3L650,64.6L652,59.9L654,56.3L656,53.8L658,52.5L660,52.4L662,53.5L664,55.6L666,58.8L668,63L670,67.9L672,73.6L674,79.8L676,86.4L678,93.2L680,100L682,106.7L684,113.2L686,119.3L688,124.8L690,129.6L692,133.6L694,136.8L696,139L698,140.3L700,140.6L702,139.9L704,138.2L706,135.7L708,132.2L710,128.1L712,123.2L714,117.9L716,112.1L718,106.1L720,100L722,93.9L724,88L726,82.4L728,77.2L730,72.7L732,68.8L734,65.7L736,63.4L738,62.1L740,61.6L742,62.1L744,63.5L746,65.7L748,68.7L750,72.4L752,76.9L754,82L756,87.6L758,93.6L760,100L762,106.6L764,113.2L766,119.7L768,126L770,131.8L772,136.9L774,141.2L776,144.6L778,146.9L780,148.1L782,148.2L784,147L786,144.8L788,141.5L790,137.4L792,132.4L794,126.9L796,120.8L798,114.6L800,108.1L802,101.8L804,95.6L806,89.8L808,84.3L810,79.4L812,75L814,71.3L816,68.3L818,66L820,64.4L822,63.5L824,63.4L826,63.9L828,65L830,66.6L832,68.8L834,71.4L836,74.4L838,77.6L840,81.1L842,84.8L844,88.5L846,92.3L848,96L850,99.7L852,103.2L854,106.6L856,109.7L858,112.6L860,115.2L862,117.5L864,119.5L866,121.2L868,122.5L870,123.4L872,123.9L874,124L876,123.7L878,123L880,121.8L882,120.1L884,118L886,115.5L888,112.5L890,109.1L892,105.3L894,101.2L896,96.9L898,92.4L900,87.8L902,83.3L904,78.9L906,74.9L908,71.2L910,68.2L912,65.8L914,64.4L916,63.9L918,64.5L920,66.2L922,69.1L924,73.1L926,78.2L928,84.4L930,91.3L932,98.9L934,106.9L936,115L938,122.9L940,130.4L942,136.9L944,142.4L946,146.5L948,148.9L950,149.6L952,148.3L954,145.2L956,140.3L958,133.8L960,125.8L962,116.7L964,106.9L966,96.8L968,86.7L970,77.2L972,68.6L974,61.2L976,55.5L978,51.5L980,49.5L982,49.5L984,51.4L986,55.2L988,60.6L990,67.3L992,75.1L994,83.6L996,92.4L998,101.1L1000,109.5L1002,117.2L1004,124L1006,129.7L1008,134L1010,137.1L1012,138.8L1014,139.1L1016,138.1L1018,136L1020,133L1022,129L1024,124.5L1026,119.5L1028,114.2L1030,108.9L1032,103.6L1034,98.5L1036,93.8L1038,89.4L1040,85.6L1042,82.4L1044,79.7L1046,77.6L1048,76.1L1050,75.2L1052,74.9L1054,75.1L1056,75.8L1058,76.9L1060,78.5L1062,80.4L1064,82.7L1066,85.2L1068,88L1070,91.1L1072,94.2L1074,97.5L1076,100.9L1078,104.4L1080,107.9L1082,111.3L1084,114.6L1086,117.8L1088,120.8L1090,123.5L1092,126L1094,128.1L1096,129.8L1098,131L1100,131.8L1102,132L1104,131.6L1106,130.6L1108,129L1110,126.8L1112,124L1114,120.6L1116,116.6L1118,112.2L1120,107.3L1122,102L1124,96.5L1126,90.8L1128,85L1130,79.3L1132,73.8L1134,68.8L1136,64.5L1138,60.9L1140,58.3L1142,56.7L1144,56.1L1146,56.6L1148,58.2L1150,60.6L1152,63.9L1154,67.9L1156,72.3L1158,77.1L1160,82L1162,86.9L1164,91.5L1166,95.7L1168,99.4L1170,102.5L1172,104.8L1174,106.5L1176,107.5L1178,107.8L1180,107.6L1182,107L1184,106L1186,104.9L1188,103.7L1190,102.6L1192,101.6L1194,100.9L1196,100.3L1198,100.1L1200,100" />
+                        <g class="animate-annotate" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1"
+                            vector-effect="non-scaling-stroke">
+                            <!-- Frequency: one cycle, trough to trough -->
+                            <path vector-effect="non-scaling-stroke" d="M140,150V178H220V150" />
+                            <!-- Intensity: peak-to-peak height of the largest swing -->
+                            <path vector-effect="non-scaling-stroke" stroke-dasharray="3 4"
+                                d="M560,43.6H640M560,156.4H640" />
+                            <path vector-effect="non-scaling-stroke" d="M600,43.6V156.4M592,43.6H608M592,156.4H608" />
+                            <!-- Regularity: successive peaks reach different heights at uneven spacing -->
+                            <path vector-effect="non-scaling-stroke" stroke-dasharray="3 4"
+                                d="M824,63.4L916,63.9L982,49.5L1052,74.9L1144,56.1" />
+                            <path vector-effect="non-scaling-stroke" d="M824,170V180H1144V170" />
+                        </g>
+                    </svg>
+                    <figcaption class="animate-annotate mt-5 grid grid-cols-3 gap-3 text-center">
+                        <div>
+                            <p class="font-bold text-accent-peach">Frequency</p>
+                            <p class="text-xs md:text-sm text-slate-400">Cycles per second</p>
                         </div>
-                        <div class="absolute inset-4 rounded-full border border-white/5 bg-primary/10"></div>
-                        <div
-                            class="flex flex-col items-center text-center p-6 transition-transform duration-300 group-hover:scale-105 relative z-10">
-                            <span class="material-symbols-outlined text-accent-peach text-5xl mb-4">sensors</span>
-                            <p class="text-lg font-bold text-white leading-snug">Measure tremor using the sensors</p>
+                        <div>
+                            <p class="font-bold text-accent-peach">Intensity</p>
+                            <p class="text-xs md:text-sm text-slate-400">How large each movement is</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-accent-peach">Regularity</p>
+                            <p class="text-xs md:text-sm text-slate-400">How steady the rhythm is</p>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Problem -->
+        <section id="problem" class="relative scroll-mt-20">
+            <div class="glow top-1/4 -right-32 w-[30rem] h-[30rem] bg-glow-warm/25"></div>
+            <div class="relative max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-balance mb-6">
+                        Movement disorders are still assessed by eye
+                    </h2>
+                    <p class="text-lg md:text-xl text-accent-peach/90 leading-relaxed max-w-[44ch]">
+                        Even tremor, the most common one, is evaluated in a highly subjective way.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="glass-card rounded-2xl p-6 flex gap-5">
+                        <svg class="shrink-0 w-9 h-9 text-accent-peach" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z" /></svg>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Rated by eye</h3>
+                            <p class="text-slate-300 leading-relaxed">
+                                In most clinics, movement symptoms are graded through visual observation and clinical
+                                rating scales.
+                            </p>
                         </div>
                     </div>
-                    <div class="text-primary font-bold tracking-wider text-sm uppercase">Step 01</div>
-                </div>
-                <div class="flex flex-col items-center gap-6 z-10">
-                    <div
-                        class="w-64 h-64 sm:w-72 sm:h-72 rounded-full glass-card flex items-center justify-center relative animate-glow group cursor-default delay-150 overflow-hidden">
-                        <div class="absolute inset-4 rounded-full border border-white/5 bg-primary/10"></div>
-                        <div
-                            class="flex flex-col items-center text-center p-6 transition-transform duration-300 group-hover:scale-105">
-                            <span class="material-symbols-outlined text-5xl mb-4 animate-wave-text">vital_signs</span>
-                            <p class="text-lg font-bold text-white leading-snug">Obtain accurate tremor characterization
-                                in time and frequency</p>
+                    <div class="glass-card rounded-2xl p-6 flex gap-5">
+                        <svg class="shrink-0 w-9 h-9 text-accent-peach" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m320-160-56-57 103-103H80v-80h287L264-503l56-57 200 200-200 200Zm320-240L440-600l200-200 56 57-103 103h287v80H593l103 103-56 57Z" /></svg>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Hard to compare</h3>
+                            <p class="text-slate-300 leading-relaxed">
+                                Ratings can differ between clinicians and between visits, so small changes are easy to
+                                miss.
+                            </p>
                         </div>
                     </div>
-                    <div class="text-primary font-bold tracking-wider text-sm uppercase">Step 02</div>
+                    <div class="glass-card rounded-2xl p-6 flex gap-5">
+                        <svg class="shrink-0 w-9 h-9 text-accent-peach" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M120-240q-33 0-56.5-23.5T40-320q0-33 23.5-56.5T120-400h10.5q4.5 0 9.5 2l182-182q-2-5-2-9.5V-600q0-33 23.5-56.5T400-680q33 0 56.5 23.5T480-600q0 2-2 20l102 102q5-2 9.5-2h21q4.5 0 9.5 2l142-142q-2-5-2-9.5V-640q0-33 23.5-56.5T840-720q33 0 56.5 23.5T920-640q0 33-23.5 56.5T840-560h-10.5q-4.5 0-9.5-2L678-420q2 5 2 9.5v10.5q0 33-23.5 56.5T600-320q-33 0-56.5-23.5T520-400v-10.5q0-4.5 2-9.5L420-522q-5 2-9.5 2H400q-2 0-20-2L198-340q2 5 2 9.5v10.5q0 33-23.5 56.5T120-240Z" /></svg>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Hard to follow over time</h3>
+                            <p class="text-slate-300 leading-relaxed">
+                                Without objective data, tracking how a patient's symptoms evolve relies on impressions
+                                and notes.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="mt-16 max-w-3xl mx-auto text-center">
-                <p class="text-xl md:text-3xl text-slate-200 leading-relaxed font-light">
-                    An easy to use device for accurate <span class="text-accent-peach font-bold">diagnosis</span> and
-                    for easy <span class="text-accent-peach font-bold">monitorization</span> of patients
+        </section>
+
+        <!-- How it works -->
+        <section id="how" class="relative scroll-mt-20">
+            <div class="glow top-1/3 -left-40 w-[32rem] h-[32rem] bg-primary/20"></div>
+            <div class="relative max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+                <div class="max-w-3xl mb-14">
+                    <h2 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-balance mb-6">
+                        From movement to measurement in minutes
+                    </h2>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-[60ch]">
+                        Tremsys measures the movement itself, whatever its cause, so it applies across the many
+                        conditions that affect how people move. It is built for neurology and movement-disorder
+                        clinics, and for clinical research.
+                    </p>
+                </div>
+                <ol class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <li class="glass-card rounded-3xl p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-5xl font-light text-accent-peach" aria-hidden="true">1</span>
+                            <svg class="shrink-0 w-9 h-9 text-accent-peach" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M197-197q-54-55-85.5-127.5T80-480q0-84 31.5-156.5T197-763l57 57q-44 44-69 102t-25 124q0 67 25 125t69 101l-57 57Zm113-113q-32-33-51-76.5T240-480q0-51 19-94.5t51-75.5l57 57q-22 22-34.5 51T320-480q0 33 12.5 62t34.5 51l-57 57Zm113.5-113.5Q400-447 400-480t23.5-56.5Q447-560 480-560t56.5 23.5Q560-513 560-480t-23.5 56.5Q513-400 480-400t-56.5-23.5ZM650-310l-57-57q22-22 34.5-51t12.5-62q0-33-12.5-62T593-593l57-57q32 32 51 75.5t19 94.5q0 50-19 93.5T650-310Zm113 113-57-57q44-44 69-102t25-124q0-67-25-125t-69-101l57-57q54 54 85.5 126.5T880-480q0 83-31.5 155.5T763-197Z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Attach the sensors</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            Small motion sensors go on the arms, legs or head, on one side of the body or both.
+                            Recording both sides at once lets you compare left and right.
+                        </p>
+                    </li>
+                    <li class="glass-card rounded-3xl p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-5xl font-light text-accent-peach" aria-hidden="true">2</span>
+                            <svg class="shrink-0 w-9 h-9 text-accent-peach" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Run a guided assessment</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            The software walks clinician and patient through a standardised protocol, so every recording
+                            is comparable across patients, clinicians and visits.
+                        </p>
+                    </li>
+                    <li class="glass-card rounded-3xl p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-5xl font-light text-accent-peach" aria-hidden="true">3</span>
+                            <svg class="shrink-0 w-9 h-9 text-accent-peach" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M326-171q-15-11-22-28l-92-241H40v-80h228l92 244 184-485q7-17 22-28t34-11q19 0 34 11t22 28l92 241h172v80H692l-92-244-184 485q-7 17-22 28t-34 11q-19 0-34-11Z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Get objective results</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            Each recording produces measures of intensity, frequency and regularity. Results are kept in
+                            the patient's history, with the original data preserved, ready for the next visit.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Roadmap -->
+        <section id="roadmap" class="relative scroll-mt-20">
+            <div class="glow top-0 right-1/4 w-[26rem] h-[26rem] bg-glow-warm/20"></div>
+            <div class="relative max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+                <h2 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-balance mb-14 max-w-3xl">
+                    Where we are and where we're going
+                </h2>
+                <ol class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <li class="glass-card rounded-3xl p-8 border-accent-peach/30!">
+                        <span
+                            class="inline-block bg-accent-peach text-background-dark text-sm font-bold rounded-full px-3 py-1 mb-5">Now</span>
+                        <h3 class="text-xl font-bold mb-3">Working prototype</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            Wearable sensors and clinical software, starting with tremor, the most common movement
+                            disorder.
+                        </p>
+                    </li>
+                    <li class="glass-card rounded-3xl p-8">
+                        <span
+                            class="inline-block bg-white/10 text-accent-peach text-sm font-bold rounded-full px-3 py-1 mb-5">Next</span>
+                        <h3 class="text-xl font-bold mb-3">Broader assessments and validation</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            New assessments covering more movement disorders, and validation of the measurements in
+                            clinical settings.
+                        </p>
+                    </li>
+                    <li class="glass-card rounded-3xl p-8">
+                        <span
+                            class="inline-block bg-white/10 text-accent-peach text-sm font-bold rounded-full px-3 py-1 mb-5">Later</span>
+                        <h3 class="text-xl font-bold mb-3">Secure cloud platform</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            Results available to the care team wherever they are, and each patient followed over time,
+                            across visits and clinics.
+                        </p>
+                    </li>
+                </ol>
+                <p class="mt-10 text-sm text-slate-400">
+                    Tremsys is in development and is not yet a certified medical device.
                 </p>
             </div>
         </section>
-        <div
-            class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-[100px] pointer-events-none">
-        </div>
-        <div
-            class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-peach/10 rounded-full filter blur-[100px] pointer-events-none">
-        </div>
     </main>
-    <div class="relative w-full h-24 md:h-32 overflow-hidden mt-auto -mb-1">
-        <svg class="absolute bottom-0 w-full h-full text-primary/10 fill-current" preserveAspectRatio="none"
-            viewBox="0 0 1440 320">
-            <path
-                d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-            </path>
-        </svg>
-    </div>
-    <footer class="bg-[#0b2142] border-t border-white/5 relative z-20">
-        <div class="relative max-w-7xl mx-auto px-6 py-20 lg:py-24 text-center">
-            <div class="inline-flex flex-col items-center justify-center relative p-12">
-                <div aria-hidden="true"
-                    class="absolute inset-0 border-2 border-accent-peach/30 rounded-[3rem] transform -rotate-1 pointer-events-none">
-                </div>
-                <div aria-hidden="true"
-                    class="absolute inset-0 border-2 border-primary/20 rounded-[3rem] transform rotate-2 pointer-events-none">
-                </div>
-                <!-- <h3 class="text-accent-peach font-bold uppercase tracking-widest text-sm mb-4">Clinical Trials &amp;
-                    Partnerships</h3> -->
-                <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Let's Connect</h2>
-                <a class="text-2xl md:text-4xl font-bold text-primary hover:text-white transition-colors duration-300 underline decoration-2 decoration-accent-peach/50 underline-offset-8"
-                    href="mailto:contact@tremsys.dk">
-                    contact@tremsys.dk
-                </a>
-                <!-- <div class="flex gap-6 mt-10">
-                    <a class="w-10 h-10 rounded-full bg-white/5 hover:bg-primary flex items-center justify-center transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-sm">mail</span>
-                    </a>
-                    <a class="w-10 h-10 rounded-full bg-white/5 hover:bg-primary flex items-center justify-center transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-sm">share</span>
-                    </a>
-                </div> -->
+
+    <footer id="contact" class="relative bg-footer border-t border-white/5 scroll-mt-20 overflow-hidden">
+        <div class="glow top-10 left-1/3 w-[30rem] h-[30rem] bg-primary/20"></div>
+        <div class="glow top-32 right-0 w-[24rem] h-[24rem] bg-glow-warm/25"></div>
+        <div class="relative max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-10 md:pt-24">
+            <div class="glass-card rounded-[2rem] p-8 md:p-14">
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">Get in touch</h2>
+                <p class="text-lg text-slate-300 max-w-[52ch] mb-8">
+                    Clinician, researcher or partner interested in objective movement measurement? We'd love to hear
+                    from you.
+                </p>
+                <a class="inline-block text-2xl md:text-4xl font-bold text-primary hover:text-accent-peach transition-colors underline decoration-2 decoration-accent-peach/50 underline-offset-8 break-all"
+                    href="mailto:contact@tremsys.dk">contact@tremsys.dk</a>
             </div>
             <div
-                class="mt-16 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm border-t border-white/10 pt-8">
-                <p>© 2026 Tremsys. All rights reserved.</p>
-                <div class="flex gap-6 mt-4 md:mt-0">
-                    <!-- <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
-                    <a class="hover:text-white transition-colors" href="#">Terms of Service</a> -->
-                    <span class="text-white">Privacy Policy (Coming Soon)</span>
-                    <span class="text-white">Terms of Service (Coming Soon)</span>
-                </div>
+                class="mt-16 flex flex-col md:flex-row justify-between gap-2 text-slate-400 text-sm border-t border-white/10 pt-8">
+                <p>&copy; 2026 Tremsys, Copenhagen, Denmark</p>
+                <p>This website uses no cookies or tracking.</p>
             </div>
         </div>
     </footer>
